@@ -6,7 +6,17 @@
     <title>Lorem</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
+    <script>
+        function validateForm() {
+            var nameValue = document.forms["form"]["name"].value;
+            var emailValue = document.forms["form"]["email"].value;
+            var messageValue = document.forms["form"]["message"].value;
+            if (nameValue == "" || emailValue == "" || messageValue == "") {
+                alert("This must be filled out!");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -18,7 +28,7 @@
         </nav>
     </header>
     <div class="content">
-        <form>
+        <form name="form" onsubmit="return validateForm()">
             <input type="text" name="name" placeholder="Enter your name">
             <input type="email" name="email" placeholder="Enter your email">
             <textarea name="message" placeholder="Enter message"></textarea>
