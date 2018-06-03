@@ -17,6 +17,21 @@
             }
         }
     </script>
+    <script>
+        function enableDisableButton() {
+            var nameValue = document.forms["form"]["name"].value;
+            var emailValue = document.forms["form"]["email"].value;
+            var messageValue = document.forms["form"]["message"].value;
+            var disableButton = false;
+            if (nameValue == "" || emailValue == "" || messageValue == "") {
+                disableButton = true;
+            }
+            else {
+                disableButton = false;
+            }
+            document.forms["form"]["submit"].disabled = disableButton;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -29,10 +44,10 @@
     </header>
     <div class="content">
         <form name="form" onsubmit="return validateForm()">
-            <input type="text" name="name" placeholder="Enter your name">
-            <input type="email" name="email" placeholder="Enter your email">
-            <textarea name="message" placeholder="Enter message"></textarea>
-            <input type="submit" name="submit" value="SEND">
+            <input type="text" name="name" placeholder="Enter your name"                onchange="enableDisableButton()">
+            <input type="email" name="email" placeholder="Enter your email" onchange="enableDisableButton()">
+            <textarea name="message" placeholder="Enter message" onchange="enableDisableButton()"></textarea>
+            <input type="submit" name="submit" value="SEND" disabled>
         </form>
     </div>
     <footer>
