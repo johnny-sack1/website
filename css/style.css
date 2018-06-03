@@ -2,3 +2,20 @@ body {
     background: orange;
     font-size: 24px;
 }
+
+.content {
+    margin: auto;
+    text-align: center;
+}
+
+textarea {
+    margin: auto;
+    text-align: center;
+}
+
+input {
+    margin: auto;
+    text-align: center;
+    display: table;
+    clear: both;
+}
